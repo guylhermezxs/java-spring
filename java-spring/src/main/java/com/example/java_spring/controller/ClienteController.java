@@ -1,0 +1,32 @@
+package com.example.java_spring.controller;
+
+import com.example.java_spring.model.Cliente;
+import com.example.java_spring.repository.ClienteRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/cliente")
+public class ClienteController {
+
+    private ClienteRepository clienteRepository;
+
+    public ClienteController(ClienteRepository clienteRepository) {
+        this.clienteRepository = clienteRepository;
+    }
+
+
+    @GetMapping("/lista")
+    public List<Cliente> listarTodos(){
+        return clienteRepository.findAll();
+    }
+
+    @PostMapping
+    public ResponseEntity<Cliente> salvar(@RequestBody Cliente cliente){
+        clienteRepository.save(cliente);
+        return ResponseEntity.status(HttpStatus.OK).body(cliente);
+    }
+}
