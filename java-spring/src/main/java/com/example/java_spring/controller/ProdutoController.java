@@ -23,7 +23,7 @@ public class ProdutoController {
         return produtoRepository.findAll();
     }
 
-    @PostMapping
+    @PostMapping("/salvar")
     public ResponseEntity<Produto> salvar(@RequestBody Produto produto){
         produtoRepository.save(produto);
         return ResponseEntity.status(HttpStatus.OK).body(produto);

@@ -24,7 +24,7 @@ public class ClienteController {
         return clienteRepository.findAll();
     }
 
-    @PostMapping
+    @PostMapping("/salvar")
     public ResponseEntity<Cliente> salvar(@RequestBody Cliente cliente){
         clienteRepository.save(cliente);
         return ResponseEntity.status(HttpStatus.OK).body(cliente);
