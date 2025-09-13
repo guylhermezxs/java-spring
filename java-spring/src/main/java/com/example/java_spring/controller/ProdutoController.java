@@ -29,9 +29,4 @@ public class ProdutoController {
         return ResponseEntity.status(HttpStatus.OK).body(produto);
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<Produto> deletar(@RequestBody Produto produto){
-        produtoRepository.delete(produto);
-        return ResponseEntity.status(HttpStatus.OK).body(produto);
-    }
 }

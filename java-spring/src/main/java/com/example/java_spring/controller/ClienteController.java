@@ -29,9 +29,5 @@ public class ClienteController {
         return ResponseEntity.status(HttpStatus.OK).body(cliente);
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<Cliente> deletar(@RequestBody Cliente cliente){
-        clienteRepository.delete(cliente);
-        return ResponseEntity.status(HttpStatus.OK).body(cliente);
-    }
+
 }
