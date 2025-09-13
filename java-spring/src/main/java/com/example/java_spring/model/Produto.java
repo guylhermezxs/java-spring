@@ -1,15 +1,10 @@
 package com.example.java_spring.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 @Entity
 @Table(name = "tab_produto")
-@AllArgsConstructor // Construtor
-@NoArgsConstructor // Construtor Vazio
-@Data // Getter Setter ToString
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +15,45 @@ public class Produto {
     @Column(nullable = false)
     private double preco;
 
+    public Produto(Long id, String nome, double preco) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+    }
 
+    public Produto() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", preco=" + preco +
+                '}';
+    }
 }

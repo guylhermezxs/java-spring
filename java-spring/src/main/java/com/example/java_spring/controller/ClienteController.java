@@ -18,15 +18,20 @@ public class ClienteController {
         this.clienteRepository = clienteRepository;
     }
 
-
     @GetMapping("/lista")
-    public List<Cliente> listarTodos(){
+    public List<Cliente> listar(){
         return clienteRepository.findAll();
     }
 
     @PostMapping("/salvar")
     public ResponseEntity<Cliente> salvar(@RequestBody Cliente cliente){
         clienteRepository.save(cliente);
+        return ResponseEntity.status(HttpStatus.OK).body(cliente);
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<Cliente> deletar(@RequestBody Cliente cliente){
+        clienteRepository.delete(cliente);
         return ResponseEntity.status(HttpStatus.OK).body(cliente);
     }
 }
