@@ -1,17 +1,17 @@
 package com.example.javaspring_aula.model;
 
 public enum Setor {
-    RECURSOS_HUMANOS("Recursos Humanos"),
-    FINANCEIRO("Financeiro"),
-    OPERACOES("Operações");
+    ENGENHARIA("Engenharia"),
+    SAUDE("Saúde"),
+    JURIDICO("Juridico");
 
-    private String texto;
+    private String nomeSetor;
 
-    Setor(String texto) {
-        this.texto = texto;
+    Setor(String nomeSetor) {
+        this.nomeSetor = nomeSetor;
     }
 
-    public String getTexto() {
-        return texto;
+    public String getNomeSetor() {
+        return nomeSetor;
     }
 }
