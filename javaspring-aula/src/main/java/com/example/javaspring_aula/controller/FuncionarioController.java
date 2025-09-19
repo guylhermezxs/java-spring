@@ -24,7 +24,7 @@ public class FuncionarioController {
     public ResponseEntity<Funcionario> salvar (@RequestBody Funcionario funcionario){
         System.out.println("Funcionario registrado: " + funcionario);
         funcionarioRepository.save(funcionario);
-        return ResponseEntity.status(HttpStatus.OK).body(funcionario);
+        return ResponseEntity.status(HttpStatus.CREATED).body(funcionario);
     }
 
     @GetMapping("/listar")
@@ -37,7 +37,7 @@ public class FuncionarioController {
         if(funcionarioRepository.existsById(id)){
             funcionarioRepository.deleteById(id);
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-        }else{
+        } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
