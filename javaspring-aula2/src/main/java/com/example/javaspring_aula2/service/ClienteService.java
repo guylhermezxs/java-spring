@@ -30,21 +30,20 @@ public class ClienteService {
         return cliente;
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar (@PathVariable("id") UUID id){
+
+    public void deletar (UUID id) {
         if(clienteRepository.existsById(id)){
             clienteRepository.deleteById(id);
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            throw new RuntimeException("Usuário não encontrado.");
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> atualizar(@PathVariable("id") UUID id , @RequestBody Cliente cliente){
-        System.out.println("Cliente atualizado: " + cliente);
-        cliente.setId(id);
-        clienteRepository.save(cliente);
-        return ResponseEntity.status(HttpStatus.OK).build();
+    public Cliente atualizar(UUID id, Cliente cliente){
+        if(clienteRepository.existsById(id)){
+           return clienteRepository.save(cliente);
+        }else {
+            throw new RuntimeException("Usuário não encontrado.");
+        }
     }
 }

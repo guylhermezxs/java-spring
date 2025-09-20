@@ -26,9 +26,21 @@ public class ClienteController {
     }
 
     @PostMapping
-    ResponseEntity<Cliente> salvar(@RequestBody Cliente cliente){
+    public ResponseEntity<Cliente> salvar(@RequestBody Cliente cliente){
         clienteService.salvar(cliente);
         return ResponseEntity.status(HttpStatus.CREATED).body(cliente);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable("id") UUID id){
+        clienteService.deletar(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Cliente> atualizar(@PathVariable("id") UUID id , @RequestBody Cliente cliente){
+       Cliente clienteAtualizado =  clienteService.atualizar(id,cliente);
+        return ResponseEntity.status(HttpStatus.OK).body(clienteAtualizado);
     }
 
 }
