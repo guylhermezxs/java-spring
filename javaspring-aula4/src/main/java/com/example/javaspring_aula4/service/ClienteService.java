@@ -44,4 +44,9 @@ public class ClienteService {
             throw new RuntimeException("Cliente não encontrado!");
         }
     }
+
+
+    public List<Cliente> buscar(String nome){
+        return clienteRepository.findByNome(nome);
+    }
 }

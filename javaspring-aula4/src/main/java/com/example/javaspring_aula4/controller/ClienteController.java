@@ -42,5 +42,10 @@ public class ClienteController {
        return ResponseEntity.status(HttpStatus.OK).body(cliente);
     }
 
+    @GetMapping("/{nome}")
+    public List<Cliente> buscar(@RequestParam ("nome") String nome){
+        return clienteService.buscar(nome);
+    }
+
 
 }
