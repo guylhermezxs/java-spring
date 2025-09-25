@@ -1,9 +1,7 @@
 package com.example.javaspring_aula3.service;
 
 import com.example.javaspring_aula3.model.Cliente;
-import com.example.javaspring_aula3.model.Funcionario;
 import com.example.javaspring_aula3.repository.ClienteRepository;
-import jakarta.persistence.Entity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

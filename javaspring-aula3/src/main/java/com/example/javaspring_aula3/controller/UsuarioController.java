@@ -1,9 +1,7 @@
 package com.example.javaspring_aula3.controller;
 
-import com.example.javaspring_aula3.model.Cliente;
-import com.example.javaspring_aula3.model.Funcionario;
+
 import com.example.javaspring_aula3.model.Usuario;
-import com.example.javaspring_aula3.service.ClienteService;
 import com.example.javaspring_aula3.service.UsuarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping
+@RequestMapping("/usuario")
 public class UsuarioController {
 
     private UsuarioService usuarioService;
