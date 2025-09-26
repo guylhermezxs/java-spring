@@ -1,7 +1,6 @@
 package com.example.javaspring_aula4.controller;
 
 import com.example.javaspring_aula4.model.Aluno;
-import com.example.javaspring_aula4.model.Cliente;
 import com.example.javaspring_aula4.service.AlunoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
