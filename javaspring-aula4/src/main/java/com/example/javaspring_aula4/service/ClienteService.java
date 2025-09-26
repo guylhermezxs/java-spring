@@ -45,7 +45,6 @@ public class ClienteService {
         }
     }
 
-
     public List<Cliente> buscar(String nome){
         return clienteRepository.findByNome(nome);
     }
