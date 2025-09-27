@@ -1,7 +1,6 @@
 package com.example.javaspring_aula4.service;
 
 import com.example.javaspring_aula4.model.Aluno;
-import com.example.javaspring_aula4.model.Cliente;
 import com.example.javaspring_aula4.repository.AlunoRepository;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +48,6 @@ public class AlunoService {
     public List<Aluno> buscar(String nome){
         return alunoRepository.findByNome(nome);
     }
-
 
 
 }

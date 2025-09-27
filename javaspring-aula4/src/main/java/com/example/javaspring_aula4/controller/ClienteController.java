@@ -38,7 +38,7 @@ public class ClienteController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Cliente> atualizar(@PathVariable ("id") UUID id , @RequestBody Cliente cliente){
-       Cliente clienteAtualizado = clienteService.atualizar(id,cliente);
+       clienteService.atualizar(id,cliente);
        return ResponseEntity.status(HttpStatus.OK).body(cliente);
     }
 

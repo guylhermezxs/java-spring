@@ -1,6 +1,7 @@
 package com.example.javaspring_aula4.controller;
 
 import com.example.javaspring_aula4.model.Aluno;
+import com.example.javaspring_aula4.model.Endereco;
 import com.example.javaspring_aula4.service.AlunoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,8 +38,8 @@ public class AlunoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Aluno> atualizar(@PathVariable ("id") UUID id , @RequestBody Aluno aluno){
-        Aluno alunoAtualizado = alunoService.atualizar(id,aluno);
+    public ResponseEntity<Aluno> atualizar(@PathVariable ("id") UUID id , @RequestBody Aluno aluno ){
+        alunoService.atualizar(id,aluno);
         return ResponseEntity.status(HttpStatus.OK).body(aluno);
     }
 
@@ -46,5 +47,7 @@ public class AlunoController {
     public List<Aluno> buscar(@RequestParam ("nome") String nome){
         return alunoService.buscar(nome);
     }
+
+
 
 }

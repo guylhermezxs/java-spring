@@ -2,13 +2,15 @@ package com.example.javaspring_aula4.model;
 
 import jakarta.persistence.*;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "tab_endereco")
 public class Endereco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
     private String logradouro;
@@ -22,18 +24,18 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(String id, String logradouro, String numero, String cidade) {
+    public Endereco(Long id, String logradouro, String numero, String cidade) {
         this.id = id;
         this.logradouro = logradouro;
         this.numero = numero;
         this.cidade = cidade;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -64,7 +66,7 @@ public class Endereco {
     @Override
     public String toString() {
         return "Endereco{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", logradouro='" + logradouro + '\'' +
                 ", numero='" + numero + '\'' +
                 ", cidade='" + cidade + '\'' +
