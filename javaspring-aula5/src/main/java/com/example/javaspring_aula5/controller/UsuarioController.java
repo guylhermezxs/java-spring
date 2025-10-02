@@ -42,5 +42,10 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+    @GetMapping("/{nome}")
+    public List<UsuarioModel> buscar(@RequestParam ("nome") String nome){
+        return usuarioService.buscarNome(nome);
+    }
+
 
 }
