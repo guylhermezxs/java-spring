@@ -23,7 +23,7 @@ public class UsuarioService {
 
     public UsuarioModel salvarUsuario(UsuarioModel usuario){
         if(usuarioRepository.findByEmail(usuario.getEmail()).isPresent()){
-            throw new EmailCadastradoException("Usuario já cadastrado!");
+            throw new EmailCadastradoException("Usuário já cadastrado!");
         }
        return usuarioRepository.save(usuario);
     }
@@ -32,7 +32,7 @@ public class UsuarioService {
         if (usuarioRepository.existsById(id)){
             usuarioRepository.deleteById(id);
         } else {
-            throw new RuntimeException("Usuario não encontrado!");
+            throw new RuntimeException("Usuário não encontrado!");
         }
     }
 
@@ -41,7 +41,7 @@ public class UsuarioService {
             usuario.setId(id);
            return usuarioRepository.save(usuario);
         } else {
-            throw new RuntimeException("Usuario não encontrado!");
+            throw new RuntimeException("Usuário não encontrado!");
         }
     }
 

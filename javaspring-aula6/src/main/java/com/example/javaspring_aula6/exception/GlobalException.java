@@ -13,17 +13,17 @@ public class GlobalException {
 
     @ExceptionHandler(EmailCadastradoException.class)
     public ResponseEntity<Map<String, Object>> handlerEmailCadastradoException(EmailCadastradoException erro){
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("mensagem" , erro.getMessage(), "status", "erro"));
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("mensagem" , erro.getMessage(), "sucesso", false));
     }
 
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String, Object>> handlerIllegalArgumentException(IllegalArgumentException erro){
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("mensagem" , erro.getMessage(),"status", "erro"));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("mensagem" , erro.getMessage(),"sucesso", false));
     }
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<Map<String, Object>> handlerRuntimeException(RuntimeException erro){
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("mensagem" , erro.getMessage(), "status", "erro"));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("mensagem" , erro.getMessage(), "sucesso", false));
     }
 }
