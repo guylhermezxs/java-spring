@@ -29,19 +29,19 @@ public class UsuarioController {
     @PostMapping("/salvar")
     public ResponseEntity<Map<String, Object>> salvarUsuario(@RequestBody UsuarioModel usuario){
         usuarioService.salvarUsuario(usuario);
-        return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("sucesso", true));
+        return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("mensagem", "Usuario cadastrado.","sucesso" , true));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Map<String, Object>> deletarUsuario(@PathVariable ("id")UUID id){
         usuarioService.deletarUsuario(id);
-        return ResponseEntity.status(HttpStatus.OK).body(Map.of("sucesso", true));
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of("mensagem", "Usuario deletado." , "sucesso" , true));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Map<String, Object>> atualizarUsuario(@PathVariable ("id") UUID id , @RequestBody UsuarioModel usuario){
         usuarioService.atualizarUsuario(id, usuario);
-        return ResponseEntity.status(HttpStatus.OK).body(Map.of("sucesso", true));
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of("mensagem", "Usuario atualizado" , "sucesso" , true));
     }
 
     @GetMapping("/buscar")
