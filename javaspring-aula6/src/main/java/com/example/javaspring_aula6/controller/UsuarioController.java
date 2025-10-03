@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 
 @RestController
@@ -25,21 +27,21 @@ public class UsuarioController {
     }
 
     @PostMapping("/salvar")
-    public ResponseEntity<UsuarioModel> salvarUsuario(@RequestBody UsuarioModel usuario){
+    public ResponseEntity<Map<String, Object>> salvarUsuario(@RequestBody UsuarioModel usuario){
         usuarioService.salvarUsuario(usuario);
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuario);
+        return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("mensagem", "Usuario cadastrado."));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarUsuario(@PathVariable ("id")UUID id){
+    public ResponseEntity<Map<String, Object>> deletarUsuario(@PathVariable ("id")UUID id){
         usuarioService.deletarUsuario(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of("mensagem", "Usuario deletado."));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UsuarioModel> atualizarUsuario(@PathVariable ("id") UUID id , @RequestBody UsuarioModel usuario){
+    public ResponseEntity<Map<String, Object>> atualizarUsuario(@PathVariable ("id") UUID id , @RequestBody UsuarioModel usuario){
         usuarioService.atualizarUsuario(id, usuario);
-        return ResponseEntity.status(HttpStatus.OK).body(usuario);
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of("mensagem", "Usuario atualizado"));
     }
 
     @GetMapping("/buscar")

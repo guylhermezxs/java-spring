@@ -1,5 +1,6 @@
 package com.example.javaspring_aula6.service;
 
+import com.example.javaspring_aula6.exception.EmailCadastradoException;
 import com.example.javaspring_aula6.model.UsuarioModel;
 import com.example.javaspring_aula6.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class UsuarioService {
 
     public UsuarioModel salvarUsuario(UsuarioModel usuario){
         if(usuarioRepository.findByEmail(usuario.getEmail()).isPresent()){
-            throw new RuntimeException("Usuario já cadastrado!");
+            throw new EmailCadastradoException("Usuario já cadastrado!");
         }
        return usuarioRepository.save(usuario);
     }
