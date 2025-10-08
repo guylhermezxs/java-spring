@@ -22,7 +22,7 @@ public class FuncionarioService {
 
     public FuncionarioModel salvarFuncionario(FuncionarioModel funcionarioModel){
         if(funcionarioRepository.findByEmail(funcionarioModel.getEmail()).isPresent()){
-            throw new IllegalArgumentException("Funcionário já cadastrado!");
+            throw new RuntimeException("Funcionário já cadastrado!");
         }
         return funcionarioRepository.save(funcionarioModel);
     }
@@ -31,7 +31,7 @@ public class FuncionarioService {
         if (funcionarioRepository.existsById(id)){
            funcionarioRepository.deleteById(id);
         } else {
-            throw new RuntimeException("Funcionário não encontrado!");
+            throw new IllegalArgumentException("Funcionário não encontrado!");
         }
     }
 
@@ -40,7 +40,7 @@ public class FuncionarioService {
             funcionario.setId(id);
            return funcionarioRepository.save(funcionario);
         } else {
-            throw new RuntimeException("Funcionário não encontrado!");
+            throw new IllegalArgumentException("Funcionário não encontrado!");
         }
     }
 
