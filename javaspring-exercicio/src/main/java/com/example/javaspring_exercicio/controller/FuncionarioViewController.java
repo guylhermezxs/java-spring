@@ -33,8 +33,8 @@ public class FuncionarioViewController {
 
     @GetMapping("/funcionario/listar-view")
     public String listarFuncionario(Model model){
-        model.addAttribute("funcionario", funcionarioService.listarFuncionario());
-        return "listar-funcionario"; // criar listar-clientes.html
+        model.addAttribute("funcionarios", funcionarioService.listarFuncionario());
+        return "listar-funcionarios"; // criar listar-clientes.html
     }
 
 }
