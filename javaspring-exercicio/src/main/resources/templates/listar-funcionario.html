@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Funcionarios</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <style>
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background-color: #f4f6f8;
+        padding: 40px;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+    th {
+        background-color: #0078D7;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    a.button {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        background-color: #0078D7;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+    a.button:hover {
+        background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Funcionarios Cadastratos</h2>
+
+<a class="button" th:href="@{/funcionario/cadastrar}">Cadastrar Novo Funcionário</a>
+
+<table>
+  <thead>
+  <tr>
+    <th>Nome</th>
+    <th>Matricula</th>
+    <th>Data de Nascimento</th>
+    <th>Salario</th>
+    <th>Email</th>
+    <th>CEP</th>
+    <th>Logradouro</th>
+    <th>Cidade</th>
+    <th>UF</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="funcionario : ${funcionarios}">
+    <td th:text="${funcionario.nome}"></td>
+    <td th:text="${funcionario.matricula}"></td>
+    <td th:text="${funcionario.dataNascimento}"></td>
+    <td th:text="${funcionario.salario}"></td>
+    <td th:text="${funcionario.email}"></td>
+    <td th:text="${funcionario.endereco.cep}"></td>
+    <td th:text="${funcionario.endereco.logradouro}"></td>
+    <td th:text="${funcionario.endereco.cidade}"></td>
+    <td th:text="${funcionario.endereco.uf}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

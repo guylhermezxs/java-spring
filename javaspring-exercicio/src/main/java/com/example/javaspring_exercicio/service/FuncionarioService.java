@@ -22,9 +22,9 @@ public class FuncionarioService {
 
     public FuncionarioModel salvarFuncionario(FuncionarioModel funcionario){
         if (funcionarioRepository.findByEmail(funcionario.getEmail()).isPresent()){
-           return funcionarioRepository.save(funcionario);
-        } else {
             throw new EmailException("Funcionário já cadastrado.");
+        } else {
+            return funcionarioRepository.save(funcionario);
         }
     }
 
