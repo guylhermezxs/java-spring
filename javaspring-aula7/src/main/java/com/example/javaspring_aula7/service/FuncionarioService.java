@@ -1,5 +1,6 @@
 package com.example.javaspring_aula7.service;
 
+import com.example.javaspring_aula7.exception.EmailException;
 import com.example.javaspring_aula7.model.FuncionarioModel;
 import com.example.javaspring_aula7.repository.FuncionarioRepository;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class FuncionarioService {
 
     public FuncionarioModel salvarFuncionario(FuncionarioModel funcionarioModel){
         if(funcionarioRepository.findByEmail(funcionarioModel.getEmail()).isPresent()){
-            throw new RuntimeException("Funcionário já cadastrado!");
+            throw new EmailException("Email já cadastrado!");
         }
         return funcionarioRepository.save(funcionarioModel);
     }

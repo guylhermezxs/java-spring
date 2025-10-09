@@ -19,4 +19,9 @@ public class FuncionarioException {
     public ResponseEntity<Map<String , Object>> runtimeException (RuntimeException erro){
         return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("mensagem" , erro.getMessage(), "sucesso" , false));
     }
+
+    @ExceptionHandler(EmailException.class)
+    public ResponseEntity<Map<String , Object>> emailException(EmailException erro){
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("mensagem", erro.getMessage(), "sucesso" , false));
+    }
 }
