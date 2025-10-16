@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class JavaspringAula9Application {
-
 	public static void main(String[] args) {
 		SpringApplication.run(JavaspringAula9Application.class, args);
 	}
-
 }
