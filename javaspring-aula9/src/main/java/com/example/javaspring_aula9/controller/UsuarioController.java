@@ -3,6 +3,7 @@ package com.example.javaspring_aula9.controller;
 import com.example.javaspring_aula9.dto.UsuarioRequestDTO;
 import com.example.javaspring_aula9.dto.UsuarioResponseDTO;
 import com.example.javaspring_aula9.service.UsuarioService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,13 +26,13 @@ public class UsuarioController {
     }
 
     @PostMapping("/salvar")
-    public ResponseEntity<Map<String , Object>> salvarUsuario(@RequestBody UsuarioRequestDTO usuario){
+    public ResponseEntity<Map<String , Object>> salvarUsuario(@Valid  @RequestBody UsuarioRequestDTO usuario){
         usuarioService.salvarUsuario(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("mensagem" , "Usuário salvo", "sucesso" , true));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Map<String , Object>> atualizarUsuario(@PathVariable ("id") Long id , @RequestBody UsuarioRequestDTO usuario){
+    public ResponseEntity<Map<String , Object>> atualizarUsuario(@PathVariable ("id") Long id , @Valid @RequestBody UsuarioRequestDTO usuario){
         usuarioService.atualizarUsuario(id, usuario);
         return ResponseEntity.status(HttpStatus.OK).body(Map.of("mensagem" , "Usuário atualizado", "sucesso" , true));
     }

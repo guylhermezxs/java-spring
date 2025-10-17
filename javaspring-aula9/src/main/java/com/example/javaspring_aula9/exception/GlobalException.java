@@ -13,7 +13,7 @@ public class GlobalException {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Map<String , Object>> illegalArgumentException(IllegalArgumentException erro){
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("messagem", erro.getMessage(), "sucesso" , false));
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("messagem", erro.getMessage(), "sucesso" , false));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
