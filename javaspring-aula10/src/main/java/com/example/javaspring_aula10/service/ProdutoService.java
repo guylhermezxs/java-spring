@@ -15,7 +15,7 @@ public class ProdutoService {
         this.produtoRepository = produtoRepository;
     }
 
-    List<ProdutoResponseDTO> listarProduto(){
+   public List<ProdutoResponseDTO> listarProduto(){
         return produtoRepository
                 .findAll()
                 .stream()
